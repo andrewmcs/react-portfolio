@@ -65,16 +65,21 @@ const Header = () => {
         >
           <nav>
 
-              {
-                socials.map((social) => {
-                  return <a href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
-                })
-              }
+            {
+              socials.map((social) => {
+                return <a href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
+              })
+            }
 
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              {
+              // /* Add links to Projects and Contact me section */
+              <a id="contactme" href="/#contact-me" onClick={handleClick("contact-me")}>test</a>
+              // test
+              // <a>test</a>
+              }
             </HStack>
           </nav>
         </HStack>
