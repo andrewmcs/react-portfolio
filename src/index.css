@@ -17,6 +17,14 @@ code {
 }
 
 #projects-section {
-  color: orange;
   scroll-margin-top: 90px;
+}
+
+.socialsLink {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.avatarCaption {
+  padding-bottom: 50px;
 }

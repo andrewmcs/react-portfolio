@@ -80,7 +80,7 @@ const Header = () => {
 
             {
               socials.map((social) => {
-                return <a key={social.icon.iconName} href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
+                return <a className="socialsLink" key={social.icon.iconName} href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
               })
             }
 
