@@ -32,17 +32,30 @@ const socials = [
   },
 ];
 
+const handleClick = (anchor) => () => {
+  
+  console.log(anchor);
+  const id = `${anchor}-section`;
+  const element = document.getElementById(id);
+
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      align: "true",
+    });
+  }
+};
+
 const Header = () => {
-  const handleClick = (anchor) => () => {
-    const id = `${anchor}-section`;
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+
+
+  const Link = (props) => {
+
+    return (
+      <a key={props.id} id={props.id} href={props.href} onClick={handleClick(props.id)}>{props.text}</a>
+    );
+  }
 
   return (
     <Box
@@ -67,19 +80,15 @@ const Header = () => {
 
             {
               socials.map((social) => {
-                return <a href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
+                return <a key={social.icon.iconName} href={social.url} ><FontAwesomeIcon icon={social.icon} size="2x"></FontAwesomeIcon></a>;
               })
             }
 
           </nav>
           <nav>
             <HStack spacing={8}>
-              {
-              // /* Add links to Projects and Contact me section */
-              <a id="contactme" href="/#contact-me" onClick={handleClick("contact-me")}>test</a>
-              // test
-              // <a>test</a>
-              }
+              <Link id="contactme" href="/#contact-me" text="Contact Me"></Link>
+              <Link id="projects" href="/#projects" text="Projects"></Link>
             </HStack>
           </nav>
         </HStack>

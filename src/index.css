@@ -15,3 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#projects-section {
+  color: orange;
+  scroll-margin-top: 90px;
+}
