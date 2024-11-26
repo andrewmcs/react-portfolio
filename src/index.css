@@ -28,3 +28,8 @@ code {
 .avatarCaption {
   padding-bottom: 50px;
 }
+
+.cardText {
+  padding: 15px;
+  color: black
+}
