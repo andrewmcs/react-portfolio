@@ -28,7 +28,7 @@ const LandingSection = () => {
       type: '',
       comment: '',
     },
-    onSubmit: (values) => { useSubmit(values) },
+    onSubmit: (values) => { console.log("hi");  },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid Email Address").required("Required"),
