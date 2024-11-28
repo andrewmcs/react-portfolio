@@ -33,8 +33,6 @@ const socials = [
 ];
 
 const handleClick = (anchor) => () => {
-  
-  console.log(anchor);
   const id = `${anchor}-section`;
   const element = document.getElementById(id);
 

@@ -21,6 +21,8 @@ const LandingSection = () => {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
+
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -28,7 +30,7 @@ const LandingSection = () => {
       type: '',
       comment: '',
     },
-    onSubmit: (values) => { console.log("hi");  },
+    onSubmit: (values) => { submit("", values); },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid Email Address").required("Required"),
@@ -37,6 +39,18 @@ const LandingSection = () => {
         .required("Required"),
     }),
   });
+
+
+  useEffect(() => {
+    if (response != null) {
+      onOpen(response.type, response.message);
+      if (response.type == 'success') {
+        formik.resetForm();
+      }
+    }
+  }, [response])
+
+
 
   return (
     <FullScreenSection
@@ -77,7 +91,7 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps('type')} color="black">
+                <Select id="type" name="type" {...formik.getFieldProps('type')} >
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
@@ -97,7 +111,7 @@ const LandingSection = () => {
                   <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
                   : null}
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              <Button isLoading={isLoading} type="submit" colorScheme="purple" width="full" >
                 Submit
               </Button>
             </VStack>
