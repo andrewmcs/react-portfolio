@@ -16,9 +16,9 @@ code {
     monospace;
 }
 
-#projects-section {
+/* #projects-section {
   scroll-margin-top: 90px;
-}
+} */
 
 .socialsLink {
   padding-left: 15px;
@@ -33,3 +33,4 @@ code {
   padding: 15px;
   color: black
 }
+
